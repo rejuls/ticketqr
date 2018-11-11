@@ -1,12 +1,12 @@
 
 create database online_booking;
 
- create table user(id varchar(20) not null primary key,
+ create table user(id int not null primary key AUTO_INCREMENT ,
                    name varchar(20) not null,
                    password varchar(20) not null,
                    email varchar(30) not null,
                    phone int not null,
-                   credit int);
+                   credit int DEFAULT '50');
  create table bus(bus_no varchar(20) not null primary key,
                   name varchar(20) not null,
                   tot_seat int not null,
@@ -26,9 +26,9 @@ create table journey(journey_code varchar(20) not null primary key,
                      foreign key(start_stand) references stand(stand_code),
                      end_stand varchar(20),
                      foreign key(end_stand) references stand(stand_code)); 
-create table ticket( ticket_id varchar(20) not null primary key,
+create table ticket( ticket_id int not null primary key AUTO_INCREMENT,
                      cost int not null,
-                     id varchar(20),
+                     id int,
                      foreign key(id) references user(id),
                      journey_code varchar(20),
                      foreign key(journey_code) references journey(journey_code));
@@ -52,7 +52,7 @@ create table travel(travel_code varchar(20) not null primary key,
                      foreign key(start_station) references station(station_code),
                      end_station varchar(20),
                      foreign key(end_station) references station(station_code)); 
-create table passenger( id varchar(20) not null primary key,
+create table passenger( id int not null primary key AUTO_INCREMENT,
                         age int not null,
                         name varchar(20) not null); 
     
