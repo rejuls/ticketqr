@@ -65,8 +65,8 @@
         <div class="intro-text">
           <div class="intro-lead-in">Welcome To Online Reservation Center !</div>
           <div class="intro-heading text-uppercase">BOOK YOUR TICKETS HERE</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./bus.html">Bus</a>
-<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./train.html">Train</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./bus.php">Bus</a>
+<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./train.php">Train</a>
 
 
         </div>

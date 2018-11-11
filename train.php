@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,75 +51,46 @@
         </div>
       </div>
     </nav>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-th:nth-child(even) { 
-    background-color: #FFA500;
-}
-</style>
     <!-- Header -->
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-heading text-uppercase">HAPPY JOURNEY</div>
+          <div class="intro-lead-in">Welcome To Online Reservation Center !</div>
+          <div class="intro-heading text-uppercase">PLAN YOUR JOURNEY</div>
 <!-- login -->
     <section id="train book">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <table>
-  <tr>
-    <th>Name  :</th><th>    </th>
-</tr>
-<tr>
-    <th>Age  :</th><th>    </th>
-</tr>
-<tr>
-    <th>Mail Id  :</th><th>    </th>
-</tr>
-<tr>
- <th>Phone No  :</th><th>    </th>
-</tr>
-<tr>
-    <th>Bus Name  :</th><th>    </th>
-</tr>
-<tr>
-    <th>Bus No  :</th><th>    </th>
-</tr>
-<tr>
- <th>Start Stop  :</th><th>    </th>
-</tr>
-<tr>
-    <th>End Stop  :</th><th>    </th>
-</tr>
-<tr>
-    <th>Fare  :</th>
-<th>    </th>
-</tr>
-<th>Balance  :</th>
-<th>    </th>
-<tr>
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+              <div class="row">
+                <div class="col-md-6">
 
-  </tr>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your location *" required="required" data-validation-required-message="Please enter starting location.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+ <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Your Destination *" required="required" data-validation-required-message="Please enter destination.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+  <div class="form-group">
+                    <input class="form-control" id="time" type="time" placeholder="Your Time please *" required="required" data-validation-required-message="Please enter Time.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
 
- 
-</table>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="search">Search</button>
+                </div>
+              </div>
+            </form>
           </div>
-
-
         </div>
-<a href="https://www.mrc-productivity.com/techblog/?p=1172" target="_blank"><img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://www.mrc-productivity.com/techblog/?p=1172" /></a>
       </div>
     </section>
 
@@ -160,7 +132,7 @@ th:nth-child(even) {
                 <a href="privacy.html">Privacy Policy</a>
               </li>
               <li class="list-inline-item">
-                <a href="terms.html">Terms of Use</a>
+                <a href="./terms.html">Terms of Use</a>
               </li>
             </ul>
           </div>
