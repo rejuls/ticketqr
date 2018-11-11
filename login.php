@@ -192,7 +192,7 @@ unset($_SESSION['message']);
                 <a href="privacy.html">Privacy Policy</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
+                <a href="terms.html">Terms of Use</a>
               </li>
             </ul>
           </div>
