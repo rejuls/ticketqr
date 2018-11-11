@@ -8,7 +8,7 @@
                   name varchar(20) not null);
 create table stand( stand_code varchar(20) not null primary key,
                     name varchar(20) not null);
-create table journey(journey_code varchar(20) not null primary key,
+create table journey(journey_code int not null primary key AUTO_INCREMENT,
                      journey_date date not null,
                      tot_seat int DEFAULT '50',
                      avail_seat int DEFAULT '50',
