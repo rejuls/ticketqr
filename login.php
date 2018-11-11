@@ -39,11 +39,11 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="./index.html">Home</a>
+              <a class="nav-link js-scroll-trigger" href="./index.php">Home</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="index.php#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -121,8 +121,6 @@ unset($_SESSION['message']);
             <h3 class="section-subheading text-muted">Please Enter your details here</h3>
           </div>
         </div>
-
-  	<?php include('errors.php'); ?>
         <div class="row">
           <div class="col-lg-12">
             <form id="contactForm" name="sentMessage" novalidate="novalidate">
@@ -211,7 +209,7 @@ unset($_SESSION['message']);
 
     <!-- Contact form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+  <!--   <script src="js/contact_me.js"></script> -->
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
