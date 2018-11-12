@@ -10,11 +10,19 @@ if (isset($_POST['register']))
 
 	if ($password1==$password2) {
 		$password= md5($password1);
+		$sql1 = " select * from user where name ='$username'";
+		$result = mysqli_query($db,$sql1);
+		if(mysqli_num_rows ($result)==0)
+		{
 		$sql = " insert into user(name,email,phone,password) values('$username','$email','$phone','$password1')";
 		$query = mysqli_query($db,$sql);
 
                    $_SESSION['message']= "Registered successfully";
 			//header("location: home.php");
+	}
+
+else $_SESSION['message']="Username already exists";
+
 	}
 	else
 	{

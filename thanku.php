@@ -117,10 +117,10 @@ th:nth-child(even) {
 </tr>
 <tr>
     <th>End Stop  :</th><th>  <?php
-    $sql2="select name from stand where stand_code='".$_GET["sto"]."'";
-      $query2 = mysqli_query($db,$sql2);
-      $sql2a=mysqli_fetch_assoc($query2);
-      echo $sql2a['name'];
+    $sql3="select name from stand where stand_code='".$_GET["sto"]."'";
+      $query3 = mysqli_query($db,$sql3);
+      $sql3a=mysqli_fetch_assoc($query3);
+      echo $sql3a['name'];
      ?>  </th>
 </tr>
 <tr>
@@ -142,14 +142,23 @@ echo $ba-$_GET["f"];
           </div>
 
 
-        </div>
-<?php $img=$_SESSION['username']; echo"<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=$img'>"; ?> 
+        </div><br><Br>
+<?php $img=$_SESSION['username']; echo"<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=$img'>"; ?>
+
+<?php
+$bno=$_GET["bno"];
+$date=$_SESSION['date'];
+$f=$_GET["f"];
+$sql=" update journey set avail_seat = avail_seat-1 where bus_no='".$bno."' and journey_date='".$date."'";
+$quer = mysqli_query($db,$sql);
+$sql=" update user set credit = credit-$f where name='".$_SESSION['username']."'";
+$quer = mysqli_query($db,$sql);
+
+?>
+<br><br>
+<h3 class="section-subheading text-muted"><a href="./logout.php">Click here to logout</a></h3>
       </div>
     </section>
-
-
-
-
         </div>
       </div>
     </header>

@@ -63,7 +63,7 @@
 
 
  <!-- search BUS -->
-    <section id="bus book"><?php session_start();
+    <section id="bus book"><?php session_start(); $startst=''; $endst=';'
 ?>
       <div class="container">
         <div class="row">
@@ -115,7 +115,6 @@
 <!--select bus-->
 <div class="row">
   <div class="col-lg-12">
-    <form id="book" name="book" novalidate="novalidate">
       <div class="row">
         <style>
         table {
@@ -147,13 +146,11 @@
             $stocode1=mysqli_fetch_assoc($stocode);
             $sql1="SELECT name,bus_no from bus WHERE bus_no in (SELECT DISTINCT a.bus_no FROM `route` a join route b on a.stand_code='".$stacode1['stand_code']."' and b.stand_code='".$stocode1['stand_code']."' where a.bus_no=b.bus_no)";
             $query = mysqli_query($db,$sql1);
-            $sql3="SELECT( r2.fare - r1.fare ) FROM  route r1 JOIN route r2 ON r1.bus_no='".$rowst['bus_no']."' and r2.bus_no='".$rowst['bus_no']."' WHERE r1.stand_code='".$stacode1['stand_code']."' and r2.stand_code='".$stocode1['stand_code']."'";
-              $query3 = mysqli_query($db,$sql3);
-              $sql3a=mysqli_fetch_assoc($query3);
-              if ($sql3a['( r2.fare - r1.fare )']<0) {
-                  echo "asd";}
-                  else{
+
             while ($rowst=mysqli_fetch_assoc($query)){
+
+if($stacode1<$stocode1){
+
               echo" <th>";
               echo $rowst['name'];
             echo "</th>";
@@ -190,7 +187,6 @@ $e=$sql3a['( r2.fare - r1.fare )'];
         </table>
                   </div>
       </div>
-    </form>
   </div>
 </div>
 
