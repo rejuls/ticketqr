@@ -1,3 +1,5 @@
+<?php include('config.php'); session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,35 +81,59 @@ th:nth-child(even) {
           <div class="col-lg-12">
             <table>
   <tr>
-    <th>Name  :</th><th>    </th>
+    <th>Name  :</th><th> <?php echo $_SESSION['username']; ?>    </th>
 </tr>
 <tr>
-    <th>Age  :</th><th>    </th>
+    <th>Mail Id  :</th><th><?php   $sql="select email from user where name='".$_SESSION['username']."'";
+      $query = mysqli_query($db,$sql);
+      $sqla=mysqli_fetch_assoc($query);
+      echo $sqla['email']; ?>   </th>
 </tr>
 <tr>
-    <th>Mail Id  :</th><th>    </th>
+ <th>Phone No  :</th><th> <?php   $sql1="select phone from user where name='".$_SESSION['username']."'";
+   $query1 = mysqli_query($db,$sql1);
+   $sql1a=mysqli_fetch_assoc($query1);
+   echo $sql1a['phone'];
+   ?>     </th>
+         </th>
 </tr>
 <tr>
- <th>Phone No  :</th><th>    </th>
+    <th>Journey Date  :</th><th> <?php echo $_SESSION['date']  ?> </th>
 </tr>
 <tr>
-    <th>Bus Name  :</th><th>    </th>
+    <th>Bus Name  :</th><th> <?php echo $_GET["bus"]; ?></th>
 </tr>
 <tr>
-    <th>Bus No  :</th><th>    </th>
+    <th>Bus No  :</th><th> <?php echo $_GET["bno"]; ?>
+   </th>
 </tr>
 <tr>
- <th>Start Stop  :</th><th>    </th>
+ <th>Start Stop  :</th><th>  <?php
+ $sql2="select name from stand where stand_code='".$_GET["sta"]."'";
+   $query2 = mysqli_query($db,$sql2);
+   $sql2a=mysqli_fetch_assoc($query2);
+   echo $sql2a['name'];
+  ?>  </th>
 </tr>
 <tr>
-    <th>End Stop  :</th><th>    </th>
+    <th>End Stop  :</th><th>  <?php
+    $sql2="select name from stand where stand_code='".$_GET["sto"]."'";
+      $query2 = mysqli_query($db,$sql2);
+      $sql2a=mysqli_fetch_assoc($query2);
+      echo $sql2a['name'];
+     ?>  </th>
 </tr>
 <tr>
     <th>Fare  :</th>
-<th>    </th>
+<th>  <?php echo $_GET["f"]; ?>  </th>
 </tr>
 <th>Balance  :</th>
-<th>    </th>
+<th>  <?php   $sql1="select credit from user where name='".$_SESSION['username']."'";
+  $query1 = mysqli_query($db,$sql1);
+  $sql1a=mysqli_fetch_assoc($query1);
+$ba=$sql1a['credit'];
+echo $ba-$_GET["f"];
+  ?>     </th>
 <tr>
 
   </tr>
@@ -117,7 +143,7 @@ th:nth-child(even) {
 
 
         </div>
-<a href="https://www.mrc-productivity.com/techblog/?p=1172" target="_blank"><img src="https://chart.googleapis.com/chart?chs=150x150&amp;cht=qr&amp;chl=http://www.mrc-productivity.com/techblog/?p=1172" /></a>
+<?php $img=$_SESSION['username']; echo"<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=$img'>"; ?> 
       </div>
     </section>
 

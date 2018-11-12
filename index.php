@@ -66,7 +66,7 @@
           <div class="intro-lead-in">Welcome To Online Reservation Center !</div>
           <div class="intro-heading text-uppercase">BOOK YOUR TICKETS HERE</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./bus.php">Bus</a>
-<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./train.php">Train</a>
+<!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="./train.php">Train</a> -->
 
 
         </div>
@@ -81,7 +81,7 @@
             <h2 class="section-heading text-uppercase">About</h2>
             <h3 class="section-subheading text-muted">We offer you the flexibility to meet your needs.The traditional system of counter booking of tickets was completely revolutionised with the arrival of technology and internet. Tickets can now be easily booked from the comforts of your home using just your mobile phone.
 <br />
-Our aims to create a website that will help booking tickets to services such as buses & metro train. Users will be able to select the tickets and make a payment. 
+Our aims to create a website that will help booking tickets to services such as buses & metro train. Users will be able to select the tickets and make a payment.
  </h3>
           <h5 class="text-muted">Quick and easy setup with optional online payments, it's simple for people to make a booking, and full of features to make your life easier.</h5>
 

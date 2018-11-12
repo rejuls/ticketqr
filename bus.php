@@ -63,7 +63,8 @@
 
 
  <!-- search BUS -->
-    <section id="bus book">
+    <section id="bus book"><?php session_start();
+?>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -72,10 +73,13 @@
                 Select Boarding Bus Stop:  &nbsp;
                 <select name="bsearch">
                   <?php
-
-                  echo "<option value=\"Palakkad\">";
-                  echo "Palakkad";
-                  echo "</option>";
+                  $sql="select distinct name from stand";
+                  $query = mysqli_query($db,$sql);
+                  while ($rowst=mysqli_fetch_assoc($query)){
+                    echo "<option value=\"{$rowst['name']}\">";
+                    echo $rowst['name'];
+                    echo "</option>";
+                  }
 
                   if (isset($_POST['search']))
                 {
@@ -111,7 +115,7 @@
 <!--select bus-->
 <div class="row">
   <div class="col-lg-12">
-    <form id="bsearch" name="bsearch" novalidate="novalidate">
+    <form id="book" name="book" novalidate="novalidate">
       <div class="row">
         <style>
         table {
@@ -134,6 +138,7 @@
                     <table>
 <tr><th>Bus Name</th><th>Journey Date</th><th>Departure Time</th><th>Available Tickets</th><th>Ticket Cost</th><th>BOOKTICKS</th></tr>
               <?php
+
             $sql="select stand_code from stand where name='$startst'";
             $stacode = mysqli_query($db,$sql);
             $stacode1=mysqli_fetch_assoc($stacode);
@@ -142,13 +147,19 @@
             $stocode1=mysqli_fetch_assoc($stocode);
             $sql1="SELECT name,bus_no from bus WHERE bus_no in (SELECT DISTINCT a.bus_no FROM `route` a join route b on a.stand_code='".$stacode1['stand_code']."' and b.stand_code='".$stocode1['stand_code']."' where a.bus_no=b.bus_no)";
             $query = mysqli_query($db,$sql1);
+            $sql3="SELECT( r2.fare - r1.fare ) FROM  route r1 JOIN route r2 ON r1.bus_no='".$rowst['bus_no']."' and r2.bus_no='".$rowst['bus_no']."' WHERE r1.stand_code='".$stacode1['stand_code']."' and r2.stand_code='".$stocode1['stand_code']."'";
+              $query3 = mysqli_query($db,$sql3);
+              $sql3a=mysqli_fetch_assoc($query3);
+              if ($sql3a['( r2.fare - r1.fare )']<0) {
+                  echo "asd";}
+                  else{
             while ($rowst=mysqli_fetch_assoc($query)){
               echo" <th>";
-
               echo $rowst['name'];
             echo "</th>";
             echo "<th>";
             echo $date;
+            $_SESSION["date"] = $date;
             echo "</th>";
             echo "<th>";
             $sql3="select start_time from route where bus_no='".$rowst['bus_no']."' and stand_code='".$stacode1['stand_code']."'";
@@ -168,9 +179,13 @@
                 $sql3a=mysqli_fetch_assoc($query3);
                 echo $sql3a['( r2.fare - r1.fare )'];
               echo "</th>";
-
-            echo"<th> <button id='sendMessageButton' type='submit' name='login' >BOOKTICKS</button></th></tr>";
-}
+$a=$rowst['name'];
+$b=$rowst['bus_no'];
+$c=$stacode1['stand_code'];
+$d=$stocode1['stand_code'];
+$e=$sql3a['( r2.fare - r1.fare )'];
+            echo"<th><a href=\"thanku.php?bus=$a&bno=$b&sta=$c&sto=$d&f=$e\"> <button>BOOKTICKS</button></a></th></tr>";
+}}
   ?>
         </table>
                   </div>

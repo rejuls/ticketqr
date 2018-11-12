@@ -65,8 +65,8 @@
     </header>
 
     <Br>  <center><h3 class="section-subheading text-muted"> <?php   if (isset($_SESSION['message'])) {
-echo $_SESSION['message'];
-unset($_SESSION['message']);
+echo $_SESSION['message']; echo"<br>";
+echo "Buy tickets <a href='./bus.php'>here</a>";
 } ?> </h3></center>
     <!-- login -->
     <section id="login">

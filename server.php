@@ -15,9 +15,6 @@ if (isset($_POST['register']))
 
                    $_SESSION['message']= "Registered successfully";
 			//header("location: home.php");
-
-
-
 	}
 	else
 	{
